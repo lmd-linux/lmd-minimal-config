@@ -1,0 +1,9 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_install:
+	for FILE in $$(find etc -type f); do \
+		install -m 644 -D -t $$(pwd)/debian/lmd-minimal-config/$${FILE%/*} $${FILE}; \
+	done
