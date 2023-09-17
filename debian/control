@@ -1,0 +1,11 @@
+Source: lmd-minimal-config
+Maintainer: lmd Linux <lmd.linux@gmail.com>
+Section: misc
+Priority: important
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+
+Package: lmd-minimal-config
+Architecture: all
+Description: Configuration for lmd-minimal
+ Configuration for GRUB, initramfs, profile, etc...

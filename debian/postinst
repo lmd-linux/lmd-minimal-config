@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+MODPATH=/etc/initramfs-tools/modules
+for MOD in lz4 z3fold zswap; do
+    if ! grep -q "^${MOD}$" ${MODPATH}; then
+        echo "Adding ${MOD} to ${MODPATH}"
+        echo ${MOD} >> ${MODPATH}
+    fi
+done
+
+update-initramfs -k all -u
+update-grub
+
+#DEBHELPER#
